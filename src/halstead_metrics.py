@@ -5,21 +5,21 @@ from built_in_functions_calls import *
 from switch_parsing import *
 from loop_modify import *
 
-operators = {}
-operands = {}
-
 def calculate_halstead_metrics(code: str) -> dict:
     """Вычисляет метрики Холстеда для заданного JavaScript-кода."""
 
+    operators = {}
+    operands = {}
+
     operators["()"] = 0
 
-    modify_loop_counts(operators)
     calculate_al_operators(operators, code)
     find_conditions(operators, code)
     calculate_functions(operators, operands, code)
     calculate_switch(operators, code)
     calculate_built_in_functions(operators, operands, code)
     fix_operators(operators)
+    modify_loop_counts(operators, code)
 
     print("operators")
     for name in operators:
