@@ -56,7 +56,7 @@ def fix_operators(operators):
     if operators["?"] < 0:
         operators[":"] = -operators["?"]
         operators.pop("?")
-    if operators["?"] == 0:
+    if operators.get("?") == 0:
         operators.pop("?")
     operators.pop("switch")
     operators.pop("case")
