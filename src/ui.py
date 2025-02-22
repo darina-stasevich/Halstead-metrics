@@ -68,7 +68,7 @@ def create_ui():
 
     root = tk.Tk()
     root.title("Метрики Холстеда")
-    root.geometry("800x655")
+    root.geometry("800x640")
     root.resizable(False, False)
 
     # Поле ввода имени файла
@@ -103,14 +103,14 @@ def create_ui():
     frame.pack(pady=10, fill=tk.X)  # fill=tk.X для заполнения по ширине
 
     # Таблицы для операторов и операндов
-    operators_tree = ttk.Treeview(frame, columns=("Operator", "Count"), show='headings', height=14)
+    operators_tree = ttk.Treeview(frame, columns=("Operator", "Count"), show='headings', height=13)
     operators_tree.heading("Operator", text="Оператор")
     operators_tree.heading("Count", text="Количество")
     operators_tree.column("Operator", width=200)  # Установите ширину для колонки операторов
     operators_tree.column("Count", width=100)
     operators_tree.grid(row=0, column=0, padx=5, pady=5, sticky='nsew')  # Используйте sticky для заполнения
 
-    operands_tree = ttk.Treeview(frame, columns=("Operand", "Count"), show='headings', height=14)
+    operands_tree = ttk.Treeview(frame, columns=("Operand", "Count"), show='headings', height=13)
     operands_tree.heading("Operand", text="Операнд")
     operands_tree.heading("Count", text="Количество")
     operands_tree.column("Operand", width=200)
@@ -127,3 +127,5 @@ def create_ui():
     frame.columnconfigure(1, weight=1)
 
     root.mainloop()
+
+create_ui()
