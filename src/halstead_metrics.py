@@ -1,14 +1,9 @@
-import math
-
-from pygments import lex
-from pygments.lexers import JavascriptLexer
-from pygments.token import Token, is_token_subtype
-
 from arithmetic_and_logic_parsing import *
 from condition_parsing import *
 from function_declaration_and_calls import *
 from built_in_functions_calls import *
 from switch_parsing import *
+from loop_modify import *
 
 operators = {}
 operands = {}
@@ -17,6 +12,8 @@ def calculate_halstead_metrics(code: str) -> dict:
     """Вычисляет метрики Холстеда для заданного JavaScript-кода."""
 
     operators["()"] = 0
+
+    modify_loop_counts(operators)
     calculate_al_operators(operators, code)
     find_conditions(operators, code)
     calculate_functions(operators, operands, code)
@@ -55,13 +52,15 @@ def calculate_halstead_metrics(code: str) -> dict:
         "vocabulary": vocabulary,
         "length": length,
         "volume": round(volume, 2),
+        "operators": operators,
+        "operands": operands
     }
 
 
 # Пример использования
 if __name__ == "__main__":
 
-    with (open('code.js', 'r', encoding='utf-8') as file):
+    with (open('../js/code.js', 'r', encoding='utf-8') as file):
         code = file.read()
 
     metrics = calculate_halstead_metrics(code)
