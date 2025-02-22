@@ -47,11 +47,7 @@ def display_metrics(filename_entry, tree):
         "Общее количество операндов (N2)": metrics['N2'],
         "Словарь программы (n)": metrics['vocabulary'],
         "Длина программы (N)": metrics['length'],
-        "Объем (V)": f"{metrics['volume']:.2f}",
-        "Сложность (D)": f"{metrics['difficulty']:.2f}",
-        "Уровень (L)": f"{metrics['level']:.2f}",
-        "Усилия (E)": f"{metrics['effort']:.2f}",
-        "Примерное время разработки (T)": f"{metrics['time']:.2f} сек",
+        "Объем (V)": f"{metrics['volume']:.2f}"
     }
 
     for key, value in metrics_data.items():
