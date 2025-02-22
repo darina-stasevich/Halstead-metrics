@@ -68,7 +68,7 @@ def create_ui():
 
     root = tk.Tk()
     root.title("Метрики Холстеда")
-    root.geometry("800x640")
+    root.geometry("800x650")
     root.resizable(False, False)
 
     # Поле ввода имени файла
@@ -127,5 +127,3 @@ def create_ui():
     frame.columnconfigure(1, weight=1)
 
     root.mainloop()
-
-create_ui()
