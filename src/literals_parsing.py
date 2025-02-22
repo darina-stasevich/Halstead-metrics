@@ -19,8 +19,9 @@ def calculate_literals(operands, code):
             continue
 
         if (is_token_subtype(token_type, Token.Literal.String) or
-           (is_token_subtype(token_type, Token.Keyword) and (token_value.strip() == "True" or token_value.strip() == "False")) or
-           is_token_subtype(token_type, Token.Literal.Number)):
+                is_token_subtype(token_type, Token.Literal.Number) or
+                (is_token_subtype(token_type, Token.Keyword) and token_value.strip() in {"true", "false", "null"}) or
+                (is_token_subtype(token_type, Token.Name) and token_value.strip() == "undefined")):
             if token_value.strip() not in operands:
                 operands[token_value.strip()] = 1
             else:
