@@ -52,3 +52,13 @@ console.log(typeof "Hi");  // string
 
 delete obj.name;
 console.log("name" in obj); // false
+
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        console.log(`${this.name} издает звук.`);
+    }
+}

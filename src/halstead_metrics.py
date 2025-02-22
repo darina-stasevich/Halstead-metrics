@@ -23,7 +23,7 @@ def calculate_halstead_metrics(code: str) -> dict:
     modify_loop_counts(operators, code)
     fix_operators(operators)
     calculate_literals(operands, code)
-    count_operators(operands, code)
+    count_operators(operators, code)
 
     print("operators")
     for name in operators:
