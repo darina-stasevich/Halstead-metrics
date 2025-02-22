@@ -61,15 +61,6 @@ def display_metrics(filename_entry, metrics_tree, operators_tree, operands_tree)
     for key, value in metrics['operands'].items():
         operands_tree.insert("", tk.END, values=(key, value))
 
-    # Отображаем операторы и операнды
-    operators = metrics.get('operators', {})
-    operands = metrics.get('operands', {})
-
-    for operator, count in operators.items():
-        operators_tree.insert("", tk.END, values=(operator, count))
-
-    for operand, count in operands.items():
-        operands_tree.insert("", tk.END, values=(operand, count))
 
 
 def create_ui():
