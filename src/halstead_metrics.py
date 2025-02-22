@@ -4,6 +4,7 @@ from function_declaration_and_calls import *
 from built_in_functions_calls import *
 from switch_parsing import *
 from loop_modify import *
+from literals_parsing import *
 
 def calculate_halstead_metrics(code: str) -> dict:
     """Вычисляет метрики Холстеда для заданного JavaScript-кода."""
@@ -18,9 +19,9 @@ def calculate_halstead_metrics(code: str) -> dict:
     calculate_functions(operators, operands, code)
     calculate_switch(operators, code)
     calculate_built_in_functions(operators, operands, code)
-    fix_operators(operators)
     modify_loop_counts(operators, code)
-
+    fix_operators(operators)
+    calculate_literals(operands, code)
     print("operators")
     for name in operators:
         print(name, operators[name])
