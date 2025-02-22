@@ -64,10 +64,8 @@ def calculate_halstead_metrics(code: str) -> dict:
     }
 
 
-# Пример использования
 if __name__ == "__main__":
-
-    with (open('code.js', 'r', encoding='utf-8') as file):
+    with (open('../js/code.js', 'r', encoding='utf-8') as file):
         js_code = file.read()
 
     metrics = calculate_halstead_metrics(js_code)
