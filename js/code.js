@@ -59,6 +59,6 @@ class Animal {
     }
 
     speak() {
-        console.log(`${this.name} издает звук.`);
+        console.log("издает звук");
     }
 }
