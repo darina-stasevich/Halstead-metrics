@@ -127,6 +127,3 @@ def create_ui():
     frame.columnconfigure(1, weight=1)
 
     root.mainloop()
-
-
-create_ui()
