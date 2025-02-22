@@ -1,4 +1,7 @@
 def modify_loop_counts(operators):
+    if operators.get('for'):
+        operators['()'] -= operators['for']
+
     # do ... while
     if operators.get('do'):
         count_do = operators['do']
