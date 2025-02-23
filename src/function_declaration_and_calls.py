@@ -35,7 +35,8 @@ def calculate_functions(operators, operands, code):
 
     operators["function"] = function_count
     for function in functions:
-        operands[function] = functions[function] - 1
+        if functions[function] > 1:
+            operands[function] = functions[function] - 1
         operators[function + "()"] = 1
 
     operators["()"] -= cnt_brackets

@@ -11,7 +11,6 @@ function functionName1(parameter1, parameter2, parameter3) {
 }
 
 function functionName2(parameter) {
-    // Первый switch (предполагаем, что value должен быть parameter)
     switch (parameter) {
         case 1:
             console.log("Case 1");
@@ -23,8 +22,7 @@ function functionName2(parameter) {
             console.log("Default Case");
     }
 
-    // Второй switch (anotherValue не определён - оставлен как пример)
-    let anotherValue; // Предполагаем, что переменная существует
+    let anotherValue;
     switch (anotherValue) {
         case "A":
             console.log("Case A");
@@ -42,19 +40,16 @@ function functionName3() {
 function outerFunction() {
     const outerVariable = 10;
 
-    // Цикл по массиву (предполагаем, что array существует)
-    const array = []; // Пример инициализации
+    const array = [];
     for (const item of array) {
         console.log(item);
     }
 
-    // Цикл по диапазону 1-5
     for (let number = 1; number <= 5; number++) {
         console.log(number);
     }
 
-    // Switch (предполагаем, что value существует)
-    const value = 0; // Пример значения
+    const value = 0;
     switch (value) {
         case 1:
             console.log("Case 1");
@@ -67,7 +62,8 @@ function outerFunction() {
     }
 
     function innerFunction() {
-        console.log(`Inside innerFunction, outerVariable is ${outerVariable}`);
+        console.log(`Inside innerFunction, outerVariable is:`);
+        console.log(outerVariable)
     }
     innerFunction();
 
@@ -102,33 +98,12 @@ function generateFibonacci(limit) {
     return fibonacciSeries;
 }
 
-// ... предыдущие функции остаются без изменений ...
-
-// Добавляем вызовы функций в конце
-console.log("=== Запуск functionName1 ===");
-functionName1("test", 2, true);
-
-console.log("\n=== Запуск functionName2 ===");
-functionName2(2);
-functionName2(5);
-
-console.log("\n=== Запуск outerFunction ===");
-outerFunction();
-
 console.log("\n=== Генерация чисел Фибоначчи до 100 ===");
 const fibSeries = generateFibonacci(100);
 console.log("Ряд Фибоначчи:", fibSeries);
 
-// Дополнительные функции-заглушки для демонстрации
 function someFunction(arg1, arg2) {
-    console.log(`someFunction вызвана с параметрами: ${arg1}, ${arg2}`);
     return "result";
 }
 
-function anotherFunction() {
-    console.log("anotherFunction вызвана");
-    return 42;
-}
-
-console.log("\n=== Запуск functionName3 ===");
 functionName3();
