@@ -62,7 +62,8 @@ function outerFunction() {
     }
 
     function innerFunction() {
-        console.log(`Inside innerFunction, outerVariable is ${outerVariable}`);
+        console.log(`Inside innerFunction, outerVariable is:`);
+        console.log(outerVariable)
     }
     innerFunction();
 
@@ -97,29 +98,12 @@ function generateFibonacci(limit) {
     return fibonacciSeries;
 }
 
-console.log("=== Запуск functionName1 ===");
-functionName1("test", 2, true);
-
-console.log("\n=== Запуск functionName2 ===");
-functionName2(2);
-functionName2(5);
-
-console.log("\n=== Запуск outerFunction ===");
-outerFunction();
-
 console.log("\n=== Генерация чисел Фибоначчи до 100 ===");
 const fibSeries = generateFibonacci(100);
 console.log("Ряд Фибоначчи:", fibSeries);
 
 function someFunction(arg1, arg2) {
-    console.log(`someFunction вызвана с параметрами: ${arg1}, ${arg2}`);
     return "result";
 }
 
-function anotherFunction() {
-    console.log("anotherFunction вызвана");
-    return 42;
-}
-
-console.log("\n=== Запуск functionName3 ===");
 functionName3();
