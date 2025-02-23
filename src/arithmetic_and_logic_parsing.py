@@ -36,10 +36,9 @@ def calculate_al_operators(operators, code):
     if ":" in operators:
         operators["?...:"] = operators[":"]
         operators.pop(":")
-        if "?" not in operators:
-            operators["?"] = operators["?...:"]
-        operators["?"] -= operators["?...:"]
-        if operators["?"] == 0:
+        if operators.get('?'):
+            operators['?'] -= operators["?...:"]
+        if operators.get("?") == 0:
             operators.pop("?")
 
 
@@ -47,12 +46,16 @@ def fix_operators(operators):
     if operators["()"] == 0:
         operators.pop("()")
 
+
     if "?...:" not in operators:
         return
     operators["?...:"] -= operators["case"]
     operators["?...:"] -= operators["default"]
     if "?" not in operators:
-        operators["?"] = 0
+        operators["?:"] = 0
+    if not operators.get('?'):
+        operators['?'] = 0
+
     operators["?"] += operators["case"]
     operators["?"] += operators["default"]
     if operators["?"] < 0:
@@ -60,6 +63,10 @@ def fix_operators(operators):
         operators.pop("?")
     if operators.get("?") == 0:
         operators.pop("?")
+    if operators["?:"] == 0:
+        operators.pop("?:")
+    if operators["?...:"] == 0:
+        operators.pop("?...:")
     operators.pop("switch")
     operators.pop("case")
     operators.pop("default")
